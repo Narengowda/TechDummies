@@ -28,12 +28,15 @@ lenc = len(img[0])
 
 visited = []
 
+
 def neighbours(r, c):
+    """Calculates the neighbours of a given cell"""
     return [[r+1, c], [r+1, c], [r-1, c], [r, c-1],
             [r+1, c+1], [r+1, c-1], [r-1, c-1], [r-1, c+1]]
 
 
 def flood_fill(r, c, color, replace_color):
+    """Flood fills the given segment starting from given index"""
     if r < 0 or r >= lenr:
         return
 
@@ -58,6 +61,7 @@ def flood_img():
     print("Input")
 
     for i in img:print i
+
     replace_point = (4, 4)
     flood_fill(*replace_point, color=2, replace_color=3)
 
@@ -67,3 +71,4 @@ def flood_img():
 
 
 flood_img()
+

@@ -10,10 +10,10 @@ from collections import deque
 
 
 inp = [[1,1,0,0,0],
-     [0,1,0,0,1],
-     [1,0,0,1,1],
-     [0,0,0,0,0],
-     [1,0,1,0,1]]
+       [0,1,0,0,1],
+       [1,0,0,1,1],
+       [0,0,0,0,0],
+       [1,0,1,0,1]]
 
 len_y = len(inp)
 len_x = len(inp[0])
@@ -45,7 +45,6 @@ def get_siblings(x, y):
 stack = deque()
 
 
-
 def BFS(node):
     """Does Breadth first search traversal"""
     # If already visited then it will be part of connected cell
@@ -70,6 +69,7 @@ def BFS(node):
         # update queue with siblings
         visited.append(cnode)
         stack.extend(siblings)
+
     return lands
 
 
@@ -84,3 +84,4 @@ islands = main()
 
 print 'Number of islands are = ', len(islands)
 for i, v in enumerate(islands): print "Island {}: {}".format(i+1, v)
+
