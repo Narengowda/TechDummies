@@ -15,8 +15,8 @@ from nltk.tokenize import word_tokenize
 # stop_words = set(stopwords.words('english'))
 # english_words = [w for w in english_words if w not in stop_words]
 
-english_words = ['apple', 'pickle', 'side', 'kick', 'sick', 'mood', 'cat',
-                 'cats', 'man', 'super', 'antman', 'godzilla', 'dog', 'dot',
+english_words = ['apple', 'pickle', 'side', 'kick', 'sick', 'mood', 'cats',
+                 'cat', 'man', 'super', 'antman', 'godzilla', 'dog', 'dot',
                  'sine', 'cos', 'signal', 'bitcoin', 'cool', 'zapper']
 
 boggle = [
@@ -55,7 +55,9 @@ def gen_trie(word, node):
 
     if word[0] not in node:
         node[word[0]] = {'valid': len(word) == 1, 'next': {}}
-
+    elif len(word) == 1:
+        node[word[0]]['valid'] = True 
+        
     # recursively build trie
     gen_trie(word[1:], node[word[0]])
 
